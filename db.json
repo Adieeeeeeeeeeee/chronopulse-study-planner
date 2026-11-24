@@ -1,0 +1,81 @@
+{
+  "workspace": {
+    "workspace_id": "ws-aditya-01",
+    "owner_name": "Aditya G Atok",
+    "theme_mode": "light",
+    "weekly_target_hours": 24,
+    "updated_at": "2026-11-24T09:00:00.000Z"
+  },
+  "tasks": [
+    {
+      "id": "tsk-101",
+      "title": "DBMS Normalization & SQL Lab Sheet",
+      "subject": "Database Systems",
+      "priority": "High",
+      "dueDate": "2026-11-26",
+      "estimatedHours": 3,
+      "loggedHours": 2,
+      "completed": false
+    },
+    {
+      "id": "tsk-102",
+      "title": "Linear Algebra Eigenvalue Problem Set",
+      "subject": "Mathematics",
+      "priority": "Medium",
+      "dueDate": "2026-11-28",
+      "estimatedHours": 2.5,
+      "loggedHours": 2.5,
+      "completed": true
+    },
+    {
+      "id": "tsk-103",
+      "title": "Neural Network Backpropagation Notes",
+      "subject": "Machine Learning",
+      "priority": "High",
+      "dueDate": "2026-11-25",
+      "estimatedHours": 4,
+      "loggedHours": 1.5,
+      "completed": false
+    }
+  ],
+  "sessions": [
+    {
+      "id": "ses-201",
+      "subject": "Database Systems",
+      "topic": "3NF & BCNF Practice",
+      "minutes": 50,
+      "date": "2026-11-22"
+    },
+    {
+      "id": "ses-202",
+      "subject": "Mathematics",
+      "topic": "Matrix Diagonalization",
+      "minutes": 75,
+      "date": "2026-11-23"
+    },
+    {
+      "id": "ses-203",
+      "subject": "Machine Learning",
+      "topic": "Gradient Descent Derivation",
+      "minutes": 90,
+      "date": "2026-11-24"
+    }
+  ],
+  "habits": [
+    {
+      "id": "hab-1",
+      "title": "Review lecture notes before 8 PM",
+      "doneToday": true
+    },
+    {
+      "id": "hab-2",
+      "title": "Solve 3 DSA problems",
+      "doneToday": false
+    },
+    {
+      "id": "hab-3",
+      "title": "Zero phone distraction during focus blocks",
+      "doneToday": true
+    }
+  ]
+}

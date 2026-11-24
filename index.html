@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChronoPulse — Study Planner & Focus Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>ChronoPulse</h1>
+      <p class="subtitle">Academic Study Planner & Daily Focus Tracker — Aditya G Atok</p>
+    </div>
+    <div class="topbar-actions">
+      <button id="exportCsvBtn" class="btn secondary">Export CSV</button>
+      <button id="exportJsonBtn" class="btn secondary">Backup JSON</button>
+      <button id="themeToggleBtn" class="btn primary">Toggle Theme</button>
+    </div>
+  </header>
+
+  <main class="bento-grid">
+    <!-- KPI Strip -->
+    <section class="card kpi">
+      <span class="label">Hours Studied (Total)</span>
+      <h2 id="kpiHours">0.0 hrs</h2>
+      <small id="kpiTargetNote">Target: 24 hrs / week</small>
+    </section>
+
+    <section class="card kpi">
+      <span class="label">Pending Assignments</span>
+      <h2 id="kpiPending">0</h2>
+      <small id="kpiCompletedNote">0 completed</small>
+    </section>
+
+    <section class="card kpi">
+      <span class="label">Study Consistency Score</span>
+      <h2 id="kpiConsistency">0 / 100</h2>
+      <small>Based on tasks & daily habits</small>
+    </section>
+
+    <!-- Pomodoro Focus Timer -->
+    <section class="card timer-card">
+      <h3>Focus Timer</h3>
+      <div class="timer-display" id="timerDisplay">25:00</div>
+      <div class="preset-row">
+        <button class="chip" data-mins="25">25m Focus</button>
+        <button class="chip" data-mins="50">50m Deep</button>
+        <button class="chip" data-mins="5">5m Break</button>
+      </div>
+      <div class="timer-controls">
+        <button id="startTimerBtn" class="btn primary">Start</button>
+        <button id="pauseTimerBtn" class="btn secondary">Pause</button>
+        <button id="resetTimerBtn" class="btn secondary">Reset</button>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="card chart-card">
+      <h3>Recent Study Sessions (Minutes)</h3>
+      <canvas id="dailyChart"></canvas>
+    </section>
+
+    <section class="card chart-card">
+      <h3>Subject Time Mix</h3>
+      <canvas id="subjectChart"></canvas>
+    </section>
+
+    <!-- Add Task Form -->
+    <section class="card">
+      <h3>Add Assignment / Study Task</h3>
+      <form id="taskForm" class="stack-form">
+        <input type="text" id="taskTitle" placeholder="Task title (e.g., OS Scheduling Lab)" required />
+        <input type="text" id="taskSubject" placeholder="Subject (e.g., Operating Systems)" required />
+        <div class="row-2">
+          <select id="taskPriority">
+            <option value="High">High Priority</option>
+            <option value="Medium" selected>Medium Priority</option>
+            <option value="Low">Low Priority</option>
+          </select>
+          <input type="number" id="taskHours" step="0.5" min="0.5" placeholder="Est. Hours" required />
+        </div>
+        <input type="date" id="taskDueDate" required />
+        <button type="submit" class="btn primary">Save Task</button>
+      </form>
+    </section>
+
+    <!-- Quick Session Logger -->
+    <section class="card">
+      <h3>Log Completed Study Block</h3>
+      <form id="sessionForm" class="stack-form">
+        <input type="text" id="sessionSubject" placeholder="Subject" required />
+        <input type="text" id="sessionTopic" placeholder="Topic covered" required />
+        <div class="row-2">
+          <input type="number" id="sessionMinutes" min="5" value="45" placeholder="Minutes" required />
+          <input type="date" id="sessionDate" required />
+        </div>
+        <button type="submit" class="btn primary">Log Session</button>
+      </form>
+    </section>
+
+    <!-- Daily Habits -->
+    <section class="card">
+      <h3>Daily Study Habits</h3>
+      <ul id="habitList" class="clean-list"></ul>
+    </section>
+
+    <!-- Task Ledger -->
+    <section class="card span-3">
+      <div class="ledger-header">
+        <h3>Coursework & Study Task Ledger</h3>
+        <input type="text" id="searchInput" placeholder="Filter by title or subject..." />
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Done</th>
+              <th>Task</th>
+              <th>Subject</th>
+              <th>Priority</th>
+              <th>Due Date</th>
+              <th>Est. Hours</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="taskTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
